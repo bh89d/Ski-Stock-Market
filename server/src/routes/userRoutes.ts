@@ -1,6 +1,6 @@
 import express from "express";
-import { tokenVerification } from "../middlewares/authMiddleware.ts";
-import { getUserDetails } from "../controllers/userController.ts";
+import { tokenVerification } from "../middlewares/authMiddleware";
+import { getUserDetails } from "../controllers/userController";
 
 const Router = express.Router();
 

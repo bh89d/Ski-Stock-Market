@@ -1,6 +1,6 @@
 import express from "express";
-import { buyStock, sellStock } from "../controllers/tradeController.ts";
-import { tokenVerification } from "../middlewares/authMiddleware.ts";
+import { buyStock, sellStock } from "../controllers/tradeController";
+import { tokenVerification } from "../middlewares/authMiddleware";
 
 const Router = express.Router();
 

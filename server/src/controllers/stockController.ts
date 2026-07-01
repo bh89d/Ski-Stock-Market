@@ -1,6 +1,6 @@
-import { getStock } from "../services/marketState.ts";
+import { getStock } from "../services/marketState";
 import type { Response, Request } from "express";
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 
 export const getStocks = async(_req: Request, res: Response) => {
   const stocks = getStock().map((stock) => ({

@@ -1,4 +1,4 @@
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 import type { Request, Response } from "express";
 
 export async function getPortfolio(req: Request, res: Response) {

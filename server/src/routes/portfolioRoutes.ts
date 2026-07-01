@@ -1,6 +1,6 @@
 import express from "express";
-import { tokenVerification } from "../middlewares/authMiddleware.ts";
-import { getPortfolio, getLedger, getSingleStockPortfolio } from "../controllers/portfolioController.ts";
+import { tokenVerification } from "../middlewares/authMiddleware";
+import { getPortfolio, getLedger, getSingleStockPortfolio } from "../controllers/portfolioController";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { getStocks, getStockHistory, getSingleStock } from "../controllers/stockController.ts";
+import { getStocks, getStockHistory, getSingleStock } from "../controllers/stockController";
 
 const router = express.Router();
 

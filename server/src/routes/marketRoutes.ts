@@ -1,5 +1,5 @@
 import express from "express";
-import { getMarketClock } from "../controllers/marketController.ts";
+import { getMarketClock } from "../controllers/marketController";
 
 const router = express.Router();
 

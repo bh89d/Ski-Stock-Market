@@ -1,8 +1,8 @@
 import { marketPhase, marketRegime } from "@prisma/client";
-import prisma from "../config/db.ts";
-import { gaussian } from "../utils/gaussian.ts";
+import prisma from "../config/db";
+import { gaussian } from "../utils/gaussian";
 import type { StockDTO } from "../types/types.ts";
-import { resetDayPrices } from "../utils/utils.ts";
+import { resetDayPrices } from "../utils/utils";
 
 
 async function updateStocks(stocks: StockDTO[], currentPhase: marketPhase) {

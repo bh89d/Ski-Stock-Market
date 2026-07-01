@@ -1,13 +1,13 @@
 import express from "express";
 import { config } from "dotenv";
-import authRoutes from "./routes/authRoutes.ts";
-import { priceEngine } from "./priceEngine/priceEngine.ts";
-import stockRoutes from "./routes/stockRoutes.ts";
-import companyRoutes from "./routes/companyRoutes.ts";
-import marketRoutes from "./routes/marketRoutes.ts";
-import tradeRoutes from "./routes/tradeRoutes.ts";
-import portfolioRouter from "./routes/portfolioRoutes.ts";
-import userRoutes from "./routes/userRoutes.ts";
+import authRoutes from "./routes/authRoutes.js";
+import { priceEngine } from "./priceEngine/priceEngine";
+import stockRoutes from "./routes/stockRoutes";
+import companyRoutes from "./routes/companyRoutes";
+import marketRoutes from "./routes/marketRoutes";
+import tradeRoutes from "./routes/tradeRoutes";
+import portfolioRouter from "./routes/portfolioRoutes";
+import userRoutes from "./routes/userRoutes";
 import cors from "cors";
 
 config();

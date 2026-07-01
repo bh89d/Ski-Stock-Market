@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 
 export const getCompany = async (_req: Request, res: Response) => {
   const company = await prisma.company.findMany();

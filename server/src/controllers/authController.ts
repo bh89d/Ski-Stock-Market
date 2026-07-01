@@ -1,7 +1,7 @@
-import prisma  from "../config/db.ts";
+import prisma  from "../config/db";
 import bcrypt from "bcrypt";
 import type { Request, Response } from "express";
-import { generateToken } from "../utils/generateToken.ts";
+import { generateToken } from "../utils/generateToken";
 
 export const register = async(req: Request, res: Response) => {
   const {username, password, email} = req.body;

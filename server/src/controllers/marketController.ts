@@ -1,5 +1,5 @@
 import type { Response, Request } from "express";
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 
 export async function getMarketClock(_req : Request, res : Response) {
   const marketClock = await prisma.marketClock.findUnique({

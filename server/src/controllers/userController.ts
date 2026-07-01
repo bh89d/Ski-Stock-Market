@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 
 export async function getUserDetails(req : Request, res : Response) {
   const userName = req.user?.username;

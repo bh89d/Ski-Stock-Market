@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
-import prisma from "../config/db.ts";
+import prisma from "../config/db";
 import type { Request, Response } from "express";
-import { avgBuyPrice } from "../utils/avgBuyPrice.ts";
+import { avgBuyPrice } from "../utils/avgBuyPrice";
 import { transaction } from "@prisma/client";
 
 export async function buyStock(req: Request, res: Response) {
