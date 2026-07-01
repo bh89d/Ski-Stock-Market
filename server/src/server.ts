@@ -14,10 +14,7 @@ config();
 const app = express();
 
 //Security middlewares
-app.use(cors({
-  origin: process.env.CLIENT_ORIGIN,
-}));
-
+app.use(cors());
 
 //Body parsing middlewares
 app.use(express.json());
