@@ -29,3 +29,10 @@ dist-ssr
 .md
 
 /generated/prisma
+
+#npm
+.npm-cache/
+npm-debug.log*
+
+.DS_Store
+Thumbs.db
