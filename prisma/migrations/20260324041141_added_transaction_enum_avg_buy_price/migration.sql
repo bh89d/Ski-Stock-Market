@@ -1,0 +1,10 @@
+/*
+  Warnings:
+
+  - Added the required column `quantity` to the `ledger` table without a default value. This is not possible if the table is not empty.
+
+*/
+-- AlterTable
+ALTER TABLE "ledger" ADD COLUMN     "avgBuyPrice" DOUBLE PRECISION,
+ADD COLUMN     "quantity" INTEGER NOT NULL,
+ALTER COLUMN "transaction" DROP DEFAULT;

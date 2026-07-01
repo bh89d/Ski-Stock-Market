@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "activeStock" ALTER COLUMN "updateAt" SET DEFAULT CURRENT_TIMESTAMP;

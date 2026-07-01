@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User{
+  userId String @id @default(uuid())
+  username String @unique
+  email String @unique
+  balance Int @default(100)
+  password String 
+  createdAt DateTime @default(now())
+
+  //relations
+  portfolio Portfolio[]
+  ledger ledger[]
+}
+
+model Portfolio {
+  portfolioId String @id @default(uuid())
+  userId String
+  stockId String
+  quantity Int
+  createdAt DateTime @default(now())
+  avgBuyPrice Float?
+
+  @@unique([userId, stockId])
+
+  //relations
+  user User @relation(fields : [userId], references: [userId])
+  stock Stock @relation(fields: [stockId], references: [stockId])
+}
+
+model Company {
+  companyId String @id @default(uuid())
+  companyName String @unique
+  industry industryType
+  netWorth Float
+  annualRevenue Float
+  establishedAt DateTime
+
+  //relations
+  stock Stock?
+}
+
+model Stock {
+  stockId String @id @default(uuid())
+  companyId String @unique
+  tickerSymbol String @unique
+  basePrice Float
+  currentPrice Float
+  dayHigh Float
+  dayLow Float
+  allTimeHigh Float
+  allTimeLow Float
+  previousClose Float @default(0)
+  volume Int @default(0)
+
+  //relations
+  company Company @relation(fields: [companyId], references: [companyId])
+  portfolio Portfolio[]
+  priceHistory priceHistory[]
+  activeStock activeStock[]
+  ledger ledger[]
+}
+
+model priceHistory{
+  id String @id @default(uuid())
+  stockId String
+  price Float 
+  createdAt DateTime @default(now())
+
+  //relations
+  stockid Stock @relation(fields: [stockId], references: [stockId])
+}
+
+model activeStock{
+  stockId String @id @unique
+  volatility Float
+  liquidityFactor Float
+  regime marketRegime @default(SIDE)
+  regimeTicksLeft Int
+  drift Float
+  updateAt DateTime @default(now())
+  volatilityMultiplier Float
+  lastShockAt DateTime
+  momentumCounter Int
+  lastReturn Float
+
+  //relations
+  stockid Stock @relation(fields: [stockId], references: [stockId])
+}
+
+model marketClock{
+  id Int @id @default(1)
+  currentPhase marketPhase @default(CLOSED)
+  currentMarketTick Int
+  currentTime DateTime @default(now())
+  days Int @default(1)
+}
+
+model ledger{
+  id String @id @default(uuid())
+  stockId String
+  userId String
+  transaction transaction 
+  quantity Int
+  avgBuyPrice Float?
+  price Float
+  time DateTime
+
+  //relations
+  stock Stock @relation(fields: [stockId], references: [stockId])
+  userid User @relation(fields: [userId], references: [userId])
+}
+
+enum industryType{
+  EQUIPMENT
+  APPAREL
+  RESORT
+  INFRASTRUCTURE
+  TECHNOLOGY
+}
+
+enum marketRegime{
+  BULL
+  BEAR
+  SIDE
+}
+
+enum marketPhase{
+  PRE_MARKET
+  OPEN
+  AFTER_HOURS
+  CLOSED
+}
+
+enum transaction{
+  BUY
+  SELL
+}
