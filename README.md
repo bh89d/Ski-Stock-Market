@@ -174,4 +174,4 @@ It is **not intended for financial advice or real trading.**
 
 ## Author
 
-Made by Krishna
+Made by Bhaumik Trivedi
